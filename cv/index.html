@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akın Karga Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .sidebar {
+      width: 20%;
+      background-color: white;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-pic {
+        display: block;
+        margin: 50px auto 20px;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        background: #fff;
+        background-image: url('');
+        background-size: cover;
+        border: solid 2px black;
+    }
+
+    h1, p {
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 10px;
+      margin-top: 60px;
+    }
+
+    nav ul li {
+      margin: 1px 0;
+      position: relative;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 10px;
+      border: 2px solid #ddd; /* Kutunun dış sınırları */
+      border-radius: 5px; /* Köşelerin yuvarlatılması */
+      transition: background-color 0.3s, border-color 0.3s; /* Geçiş efektleri */
+      text-align: center;
+    }
+
+    nav ul li a:hover {
+      background-color: #ddd;
+      border-color: #aaa; /* Hover sırasında kutunun sınır rengi */
+    }
+
+    nav ul li a.selected::after {
+      content: '';
+      position: absolute;
+      right: 0px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: red;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      
+    }
+
+    .social-icons img {
+      width: 45px;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .background {
+      text-align: center;
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 95%;
+      height: 95%;
+      background-image: url(images/background1.jpg);
+      background-size: cover;
+      background-position: center;
+      z-index: 1; /* Yarı saydam katmanın z-index değeri */
+    }
+
+    .background::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(54, 54, 54, 0.7); /* yarı saydam katman */
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    /* Akın Karga yazısının konumunu değiştirmek ve z-index eklemek için düzenlenen kodlar */
+    .background h2, .background p, .background ul {
+      position: absolute;
+      top: 30%; /* Yatay konumu buradan değiştirilebilir */
+      left: 47%;
+      transform: translateX(-50%);
+      z-index: 2; /* Akın Karga yazısının z-index değeri */
+      color: white;
+      font-family: 'Playfair Display', serif; /* Yeni font */
+      font-size: 48px; /* Daha büyük font boyutu */
+    }
+
+    /* Yeni eklenen stil */
+    .background h3, .background p {
+      position: absolute;
+      top: 50%; /* Konumu değiştirmek için değerlerle oynayabilirsiniz */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2; /* Adres, e-mail ve doğum tarihinin z-index değeri */
+      color: #c5c4c4;
+      font-family: Arial, Helvetica, sans-serif; /* Font uyumu */
+      font-size: 18px; /* Font boyutu */
+      text-align: left;
+    }
+
+    .sidebar p {
+      color: grey;
+      font-size: small;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <img src="profile.jpg" alt="" class="profile-pic">
+    <h1>Akın </h1>
+    <p>Bilgisayar Programcısı</p>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="selected">Ana Sayfa</a></li>
+        <li><a href="about.html">Hakkımda</a></li>
+        <li><a href="projects.html">Projelerim</a></li>
+        <li><a href="#portfolio">deneme1</a></li>
+        <li><a href="#blog">deneme2</a></li>
+        <li><a href="#contact">denem3</a></li>
+      </ul>
+    </nav>
+    <div class="social-icons">
+      <a href="#"><img src="https://img.icons8.com/?size=100&id=YRRhCXfA0Vd0&format=png&color=000000" alt="Mail"></a>
+      <a href="#"><img src="https://img.icons8.com/?size=100&id=3tC9EQumUAuq&format=png&color=000000" alt="Github"></a>
+    </div>
+  </div>
+  <div class="main-content">
+    <div id="home" class="background">
+        <h2>Akın  </h2>
+        <h3>Addres: İstanbul<br><br>Telefon: <br><br>E-mail: @gmail.com<br><br>Doğum Tarihi:  <br> </h3>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akın Karga Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .sidebar {
+      width: 20%;
+      background-color: white;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-pic {
+        display: block;
+        margin: 50px auto 20px;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        background: #fff;
+        background-image: url('');
+        background-size: cover;
+        border: solid 2px black;
+    }
+
+    h1, p {
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 10px;
+      margin-top: 60px;
+    }
+
+    nav ul li {
+      margin: 1px 0;
+      position: relative;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 10px;
+      border: 2px solid #ddd; /* Kutunun dış sınırları */
+      border-radius: 5px; /* Köşelerin yuvarlatılması */
+      transition: background-color 0.3s, border-color 0.3s; /* Geçiş efektleri */
+      text-align: center;
+    }
+
+    nav ul li a:hover {
+      background-color: #ddd;
+      border-color: #aaa; /* Hover sırasında kutunun sınır rengi */
+    }
+
+    nav ul li a.selected::after {
+      content: '';
+      position: absolute;
+      right: 0px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: red;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      
+    }
+
+    .social-icons img {
+      width: 45px;
+    }
+
+    .sidebar p {
+      color: grey;
+      font-size: small;
+    }
+
+    /* yan sayfa */
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .background {
+      text-align: center;
+      position: relative; /* Bu, .background kutusunu .yerisaerti için referans noktası yapar */
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 95%;
+      height: 95%;
+    }
+
+    .yerisaerti {
+      position: absolute; /* Öğeyi konumlandırmanıza olanak tanır */
+      top: 6%; /* .background'ın üst kısmına konumlandırır */
+      width: 13%;
+      height: 5%;
+      left: 0; /* .background'ın sol kısmına konumlandırır */
+      background-color: #e65959;
+      text-decoration: none;
+      color: white;
+      font-family: 'Playfair Display', serif; /* Yeni font */
+      font-weight: 700; /* Daha kalın */
+      font-size: 18px; /* Daha büyük */
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      padding-right: 20px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .hakkimdabilgi {
+      position: absolute;
+      top: 16%; /* Yukarıdan mesafe */
+      left: 6.5%; /* Soldan mesafe */
+      height: auto;
+      width: 40%;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    .hakkimdabilgi h3 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 700;
+      text-align: left;
+      color: #313030;
+    }
+    
+    .hakkimdabilgi p {
+      margin: 10px 0 0;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: left;
+      color: #848485;
+    }
+
+    /* proje önizlemelerim */
+
+    .testimonial-section {
+  position: absolute;
+  top: 16%; /* Yukarıdan mesafe */
+  left: 50%; /* Soldan mesafe */
+  width: 40%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial {
+  text-align: center;
+}
+
+.quote {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.avatar {
+  width: 430px;
+  height: 250px;
+  margin-top: 50px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.navigation {
+  margin-top: 10px;
+}
+
+.navigation button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+/* diller kısmı */
+
+.webkutu{
+  position: absolute;
+  background-color: #f4f4f4;
+  height: 200px;
+  width: 200px;
+  top: 70%;
+  left: 3%;
+  border-radius: 10px;
+  border: 2px solid gray;
+}
+
+.webkutu img {
+  margin-top: 15px;
+  height: 60px;
+  width: 60px;
+}
+
+.webkutu h3 {
+  color: black;
+  font-size: large;
+}
+
+.webkutu p {
+  color: #848485;
+  font-size: 12px;
+  margin: 10px;
+}
+
+
+.management{
+  position: absolute;
+  background-color: #f4f4f4;
+  height: 200px;
+  width: 200px;
+  top: 70%;
+  left: 19%;
+  border-radius: 10px;
+  border: 2px solid gray;
+}
+
+.management img {
+  margin-top: 15px;
+  height: 60px;
+  width: 60px;
+}
+
+.management h3 {
+  color: black;
+  font-size: large;
+}
+
+.management p {
+  color: #848485;
+  font-size: 12px;
+  margin: 10px;
+}
+
+
+.veritabani{
+  position: absolute;
+  background-color: #f4f4f4;
+  height: 200px;
+  width: 200px;
+  top: 70%;
+  left:35%;
+  border-radius: 10px;
+  border: 2px solid gray;
+}
+
+.veritabani img {
+  margin-top: 15px;
+  height: 60px;
+  width: 60px;
+}
+
+.veritabani h3 {
+  color: black;
+  font-size: large;
+}
+
+.veritabani p {
+  color: #848485;
+  font-size: 12px;
+  margin: 10px;
+}
+
+
+
+    
+
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <img src="profile.jpg" alt="" class="profile-pic">
+    <h1>Akın Karga</h1>
+    <p>Bilgisayar Programcısı</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="about.html" class="selected">Hakkımda</a></li>
+        <li><a href="projects.html">Projelerim</a></li>
+        <li><a href="#portfolio">denem1</a></li>
+        <li><a href="#blog">denem2</a></li>
+        <li><a href="#contact">deneme3</a></li>
+      </ul>
+    </nav>
+    <div class="social-icons">
+      <a href="#"><img src="https://img.icons8.com/?size=100&id=YRRhCXfA0Vd0&format=png&color=000000" alt="Mail"></a>
+      <a href="#"><img src="https://img.icons8.com/?size=100&id=3tC9EQumUAuq&format=png&color=000000" alt="Github"></a>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="background">
+
+      <div class="hakkimdabilgi">
+        <h3>Merhaba, Ben Akın.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At vel, corporis dolores porro a laudantium repellendus labore dicta facilis assumenda quo soluta error quisquam! Assumenda asperiores in omnis, aperiam itaque rem quia. Dolore, sunt laborum consequuntur rem alias minus eligendi accusantium! Fugit ullam ut, dolore eius doloremque perspiciatis consequatur impedit tenetur, voluptas dolorem voluptate nam, asperiores excepturi nostrum perferendis. Ipsum?</p>
+      </div>
+
+      <div class="testimonial-section">
+        <div class="testimonial">
+          <p class="quote">Bu bir yorumdur. İlgili kişi ve şirket bilgileri burada yer alacak.</p>
+          <div class="author-info">
+            <img src="profile2.jpg" alt="" class="avatar">
+            <div>
+              <p class="name">Bryan Morris</p>
+            </div>
+          </div>
+          <div class="navigation">
+            <button class="prev">←</button>
+            <button class="next">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="yerisaerti">
+        <p>Hakkımda</p>
+      </div>
+
+
+
+      <div class="webkutu">
+        <img src="images/web_design.png" alt="">
+        <h3> Web Geliştirme</h3>
+        <p>Web Sitesi Geliştirme ile ilgili iyi derecede bilgi sahibiyim, 15 adet projem bulunmakta.</p>
+      </div>
+      <div class="management">
+        <img src="images/management.png" alt="">
+        <h3>Uygulama Geliştirme</h3>
+        <p>Uygulama geliştirmele ile ilgili iyi derecede bilgi sahibiyim, 7 adet projem bulunmakta.</p>
+      </div>
+      <div class="veritabani">
+        <img src="images/veritabani.png" alt="">
+        <h3>Veri Tabanı</h3>
+        <p>Veri Tabanı ile ilgili sertifikalarım, sertifikalarım sayfasında bulunmaktadır.</p>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const testimonials = [
+  {
+    quote: "geliştirdiğim araç kiralama uygulamam.",
+    avatar: "profile2.jpg"
+  },
+  {
+    quote: "geliştirdiğim hastane kayıt uygulamam.",
+    avatar: "profile3.jpg"
+  }
+  // Daha fazla yorum ekleyebilirsiniz
+];
+
+let currentTestimonialIndex = 0;
+
+const quoteElement = document.querySelector('.quote');
+const nameElement = document.querySelector('.name');
+const avatarElement = document.querySelector('.avatar');
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+
+function updateTestimonial(index) {
+  const testimonial = testimonials[index];
+  quoteElement.textContent = `"${testimonial.quote}"`;
+  nameElement.textContent = testimonial.name;
+  companyElement.textContent = testimonial.company;
+  avatarElement.src = testimonial.avatar;
+}
+
+prevButton.addEventListener('click', () => {
+  currentTestimonialIndex = (currentTestimonialIndex > 0) ? currentTestimonialIndex - 1 : testimonials.length - 1;
+  updateTestimonial(currentTestimonialIndex);
+});
+
+nextButton.addEventListener('click', () => {
+  currentTestimonialIndex = (currentTestimonialIndex < testimonials.length - 1) ? currentTestimonialIndex + 1 : 0;
+  updateTestimonial(currentTestimonialIndex);
+});
+
+updateTestimonial(currentTestimonialIndex);
+
+</script>
+</html>
